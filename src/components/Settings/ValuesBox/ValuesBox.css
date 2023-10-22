@@ -1,0 +1,10 @@
+.valuesBox {
+    padding: 10px;
+    border: 2px solid #31d7ff;
+    border-radius: 8px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
