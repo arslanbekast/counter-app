@@ -1,0 +1,68 @@
+.counterBox {
+    display: flex;
+    gap: 100px;
+}
+
+.counter {
+    padding: 8px;
+    border: 2px solid #31d7ff;
+    border-radius: 8px;
+    width: 250px;
+}
+.settings {
+    padding: 8px;
+    border: 2px solid #31d7ff;
+    border-radius: 8px;
+    width: 250px;
+}
+.valuesBox {
+    padding: 10px;
+    border: 2px solid #31d7ff;
+    border-radius: 8px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+.valueBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #31d7ff;
+    font-size: 20px;
+    font-weight: 700;
+}
+.valueBox input{
+    width: 80px;
+    text-align: center;
+    border: 1px solid #31d7ff;
+    outline: #31d7ff;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+.btnBox {
+
+}
+.btn-group {
+    padding: 15px 10px;
+    border-radius: 8px;
+    border: 2px solid #31d7ff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn-group button + button {
+    margin-left: 8px;
+}
+.btn-group button {
+    border: 2px solid #31d7ff;
+    background-color: #31d7ff;
+    padding: 5px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #768ab1;
+}
