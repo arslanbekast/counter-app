@@ -1,0 +1,18 @@
+.valueBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #31d7ff;
+    font-size: 20px;
+    font-weight: 700;
+}
+.valueBox input{
+    width: 80px;
+    text-align: center;
+    border: 1px solid #31d7ff;
+    outline: #31d7ff;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
