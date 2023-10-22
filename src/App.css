@@ -6,6 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 100px;
   height: 100vh;
   background-color: rgb(28, 33, 42);
 }
