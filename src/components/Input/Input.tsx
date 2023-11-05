@@ -1,14 +1,32 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, FC, useEffect, useState} from 'react';
 
-export const Input = () => {
+type InputPropsType = {
+    error: boolean
+    defaultValue: number
+    setEditing: (editing: boolean) => void
+    callback: (number: number) => void
+}
 
-    const [value, setValue] = useState<string>('')
+export const Input: FC<InputPropsType> = ({error, defaultValue, setEditing, callback}) => {
+
+    // const [value, setValue] = useState<string>(String(defaultValue))
+
+   /* useEffect(() => {
+        callback(+value)
+    }, [value])*/
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setValue(e.currentTarget.value)
+       // setValue(e.currentTarget.value)
+        callback(+e.currentTarget.value)
+        setEditing(true)
+    }
+
+    const errorInputStyle = {
+        border: "2px solid red",
+        backgroundColor: "#ff8a8a"
     }
 
     return (
-        <input type="number" value={value} onChange={onChangeHandler} />
+        <input type="number" style={error ? errorInputStyle : {}} value={defaultValue} onChange={onChangeHandler} />
     );
 };
