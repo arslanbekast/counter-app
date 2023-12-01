@@ -1,6 +1,6 @@
 import React, {FC} from 'react';
 import  './Buttons.css'
-import {Button} from "../Button/Button";
+import {Button} from "../../Button/Button";
 
 type ButtonsPropsType = {
     count: number

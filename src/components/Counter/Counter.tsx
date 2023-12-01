@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
 import './Counter.css'
-import {Scoreboard} from "../Scoreboard/Scoreboard";
-import {Buttons} from "../Buttons/Buttons";
+import {Scoreboard} from "./Scoreboard/Scoreboard";
+import {Buttons} from "./Buttons/Buttons";
 
 type CounterPropsType = {
     count: number
