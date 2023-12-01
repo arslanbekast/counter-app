@@ -11,7 +11,7 @@ type ValueBoxPropsType = {
 }
 
 export const ValueBox: FC<ValueBoxPropsType> = ({title, defaultValue, error, setEditing, callback}) => {
-    console.log('Default value: '+defaultValue)
+
     return (
         <div className="valueBox">
             <span>{title}</span>

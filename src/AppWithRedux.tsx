@@ -2,17 +2,21 @@ import React, {useEffect, useState} from 'react';
 import './App.css';
 import {Counter} from "./components/Counter/Counter";
 import {Settings} from "./components/Settings/Settings";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
+import {changeCountAC, changeEditingAC, changeMinCountAC} from "./state/reducer";
 
 function App() {
-    const minLocalStorageValue = localStorage.getItem('minCount')
-    const maxLocalStorageValue = localStorage.getItem('maxCount')
-    const [minCount, setMinCount] = useState<number>(minLocalStorageValue ? +minLocalStorageValue : 0 )
-    const [maxCount, setMaxCount] = useState<number>(maxLocalStorageValue ? +maxLocalStorageValue : 5)
-    const [count, setCount] = useState<number>(minCount)
+    // const minLocalStorageValue = localStorage.getItem('minCount')
+    // const maxLocalStorageValue = localStorage.getItem('maxCount')
 
-    const [editing, setEditing] = useState<boolean>(false)
+    const minCount = useSelector<AppRootStateType, number>(state => state.minCount)
+    const maxCount = useSelector<AppRootStateType, number>(state => state.maxCount)
+    const count = useSelector<AppRootStateType, number>(state => state.count)
+    const editing = useSelector<AppRootStateType, boolean>(state => state.editing)
+
+
+    const dispatch = useDispatch();
 
   /*  useEffect(() => {
 
@@ -30,8 +34,8 @@ function App() {
 
     }, [])*/
 
-    const incCount = () => count < maxCount && setCount(prevCount => prevCount + 1)
-    const resetCount = () => setCount(minCount)
+    const incCount = () => count < maxCount && dispatch(changeCountAC(count + 1))
+    const resetCount = () => dispatch(changeCountAC(minCount))
 
     const setToLocalStorage = () => {
         localStorage.setItem("minCount", JSON.stringify(minCount))
@@ -40,22 +44,19 @@ function App() {
 
     const saveSettings = () => {
         setToLocalStorage();
-        setEditing(false);
-        setCount(minCount);
+        dispatch(changeEditingAC(false))
+        dispatch(changeCountAC(minCount));
     }
 
     const error = minCount < 0 || maxCount < 0 || minCount >= maxCount
-
+    console.log(error)
     return (
         <div className="App">
-            {/*<Settings minCount={minCount}*/}
-            {/*          maxCount={maxCount}*/}
-            {/*          error={error}*/}
-            {/*          editing={editing}*/}
-            {/*          setEditing={setEditing}*/}
-            {/*          setMinCount={setMinCount}*/}
-            {/*          setMaxCount={setMaxCount}*/}
-            {/*          saveSettings={saveSettings}/>*/}
+            <Settings minCount={minCount}
+                      maxCount={maxCount}
+                      error={error}
+                      editing={editing}
+                      saveSettings={saveSettings}/>
 
             <Counter count={count}
                      minCount={minCount}

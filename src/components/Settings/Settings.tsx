@@ -8,9 +8,9 @@ type SettingsPropsType = {
     maxCount: number
     error: boolean
     editing: boolean
-    setEditing: (editing: boolean) => void
-    setMinCount: (minCount: number) => void
-    setMaxCount: (maxCount: number) => void
+    // setEditing: (editing: boolean) => void
+    // setMinCount: (minCount: number) => void
+    // setMaxCount: (maxCount: number) => void
     saveSettings: () => void
 }
 
@@ -18,9 +18,6 @@ export const Settings: FC<SettingsPropsType> = ({   minCount,
                                                     maxCount,
                                                     error,
                                                     editing,
-                                                    setEditing,
-                                                    setMinCount,
-                                                    setMaxCount,
                                                     saveSettings
                                                 }) => {
 
@@ -28,10 +25,7 @@ export const Settings: FC<SettingsPropsType> = ({   minCount,
     return (
         <div className="settings">
             <ValuesBox minCount={minCount}
-                       maxCount={maxCount}
-                       setMinCount={setMinCount}
-                       setMaxCount={setMaxCount}
-                       setEditing={setEditing}/>
+                       maxCount={maxCount}/>
 
             <div className="btn-group">
                 <Button title='Set' disabled={!editing || error} callback={saveSettings}/>
