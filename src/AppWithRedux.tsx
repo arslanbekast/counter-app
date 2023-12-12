@@ -6,9 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
 import {changeCountAC, changeEditingAC, changeMinCountAC} from "./state/reducer";
 
-function App() {
-    // const minLocalStorageValue = localStorage.getItem('minCount')
-    // const maxLocalStorageValue = localStorage.getItem('maxCount')
+function AppWithRedux() {
 
     const minCount = useSelector<AppRootStateType, number>(state => state.minCount)
     const maxCount = useSelector<AppRootStateType, number>(state => state.maxCount)
@@ -17,22 +15,6 @@ function App() {
 
 
     const dispatch = useDispatch();
-
-  /*  useEffect(() => {
-
-        let newMinCount = localStorage.getItem('minCount')
-
-        if (newMinCount) {
-            setMinCount(+newMinCount)
-            setCount(+newMinCount)
-        }
-
-        let newMaxCount = localStorage.getItem('maxCount')
-        if (newMaxCount) {
-            setMaxCount(+newMaxCount)
-        }
-
-    }, [])*/
 
     const incCount = () => count < maxCount && dispatch(changeCountAC(count + 1))
     const resetCount = () => dispatch(changeCountAC(minCount))
@@ -69,4 +51,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppWithRedux;
